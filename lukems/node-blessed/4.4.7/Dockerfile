@@ -5,15 +5,24 @@ COPY startup /opt/startup
 COPY hostingstart.html /home/site/wwwroot/hostingstart.html
 COPY sshd_config /etc/ssh/
 
-RUN npm install -g pm2 \
-     && mkdir -p /home/LogFiles \
-     && echo "root:Docker!" | chpasswd \
-     && echo "cd /home" >> /etc/bash.bashrc \
-     && apt update \
-     && apt install -y --no-install-recommends openssh-server vim curl wget tcptraceroute \
-     && cd /opt/startup \
-     && npm install \
-     && chmod 755 /opt/startup/init_container.sh
+RUN echo "ipv6" >> /etc/modules
+
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.6/community" >> /etc/apk/repositories; \
+    echo "http://dl-cdn.alpinelinux.org/alpine/v3.6/main" >> /etc/apk/repositories; 
+
+RUN npm install -g pm2 \ 
+    && mkdir -p /home/LogFiles \
+    && echo "root:Docker!" | chpasswd \
+    && echo "cd /home" >> /etc/bash.bashrc \
+    && apk update --no-cache \
+    && apk add openssh-server \
+    && apk add vim \
+    && apk add curl \
+    && apk add wget \
+    && apk add tcptraceroute \ 
+    && cd /opt/startup \
+    && npm install \
+    && chmod 755 /opt/startup/init_container.sh
 
 EXPOSE 2222 8080
 
