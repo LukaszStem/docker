@@ -1,4 +1,4 @@
-FROM lukems/node:6.6.0
+FROM lukems/node_alpine:6.6.0
 MAINTAINER Azure App Services Container Images <appsvc-images@microsoft.com>
 
 COPY startup /opt/startup
