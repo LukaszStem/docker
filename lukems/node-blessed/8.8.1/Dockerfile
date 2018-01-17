@@ -20,6 +20,7 @@ RUN npm install -g pm2 \
      && apk add curl \
      && apk add wget \
      && apk add tcptraceroute \
+     && apk add bash \
      && cd /opt/startup \
      && npm install \
      && chmod 755 /opt/startup/init_container.sh
