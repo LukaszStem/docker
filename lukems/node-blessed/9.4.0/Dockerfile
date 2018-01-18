@@ -15,7 +15,7 @@ RUN npm install -g pm2 \
      && echo "root:Docker!" | chpasswd \
      && echo "cd /home" >> /etc/bash.bashrc \
      && apk update --no-cache \
-     && apk add openssh-server \
+     && apk add openssh \
      && apk add vim \
      && apk add curl \
      && apk add wget \
