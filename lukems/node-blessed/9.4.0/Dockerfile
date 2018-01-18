@@ -16,7 +16,7 @@ RUN npm install -g pm2 \
      && echo "cd /home" >> /etc/bash.bashrc \
      && apk update --no-cache \
      && apk add openssh \
-     && apk add openrc
+     && apk add openrc \
      && apk add vim \
      && apk add curl \
      && apk add wget \
