@@ -14,6 +14,7 @@ NodeJS quickstart: https://aka.ms/node-qs
 EOL
 cat /etc/motd
 
+rc-update add sshd
 /etc/init.d/sshd start
 
 mkdir "$PM2HOME"
