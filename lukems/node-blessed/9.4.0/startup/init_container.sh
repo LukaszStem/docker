@@ -14,7 +14,7 @@ NodeJS quickstart: https://aka.ms/node-qs
 EOL
 cat /etc/motd
 
-service ssh start
+/etc/init.d/sshd start
 
 mkdir "$PM2HOME"
 chmod 777 "$PM2HOME"
